@@ -4,7 +4,7 @@ const sql = require('mssql');
 const config = {
     user: 'sa',  // SQL Server kullanıcı adınız
     password: 'Logo1234',    // SQL Server şifreniz
-    server: '192.168.2.105', // Sunucunuzun IP adresi
+    server: '78.187.237.138', // Sunucunuzun IP adresi
     database: 'LOGO',        // Erişmek istediğiniz veritabanı adı
     options: {
         encrypt: false,      // Şifreleme (SSL kullanıyorsanız true yapın)
