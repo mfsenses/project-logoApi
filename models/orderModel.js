@@ -1,0 +1,1 @@
+//Siparişlerin detaylarını içeren bir şema oluşturulacak (sipariş oluşturulduğu tarihteki fiyatlar sabit kalacak).
