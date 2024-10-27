@@ -1,24 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const { addToCart, removeFromCart, clearCart, viewCart, setGeneralDiscount, applyDiscountToItem } = require('../controllers/cartController');
+const addToCart = require('../controllers/cart/addToCart');
+const removeFromCart = require('../controllers/cart/removeFromCart');
+const clearCart = require('../controllers/cart/clearCart');
+const viewCart = require('../controllers/cart/viewCart');
+const setGeneralDiscount = require('../controllers/cart/setGeneralDiscount');
+const applyDiscountToItem = require('../controllers/cart/applyDiscountToItem');
 const { authenticateToken } = require('../middleware/auth');
 
-// Sepete ürün ekleme
 router.post('/add', authenticateToken, addToCart);
-
-// Sepetten ürün çıkarma
 router.post('/remove', authenticateToken, removeFromCart);
-
-// Sepeti tamamen boşaltma
 router.post('/clear', authenticateToken, clearCart);
-
-// Sepeti görüntüleme
 router.get('/view', authenticateToken, viewCart);
-
-// Genel iskonto uygulama
 router.post('/set-discount', authenticateToken, setGeneralDiscount);
-
-// Mevcut ürüne iskonto uygulama
-router.post('/apply-item-discount', authenticateToken, applyDiscountToItem); // Rota ekli
+router.post('/apply-item-discount', authenticateToken, applyDiscountToItem);
 
 module.exports = router;
