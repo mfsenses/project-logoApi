@@ -1,3 +1,9 @@
+/**
+ * cartModel.js
+ * Sepet için veri modeli. Her bir sepet öğesi ürün ID'si, miktar, fiyat, indirim ve KDV oranını içerir.
+ * Sepet genelinde toplamlar ve iskontolar da burada tutulur.
+ */
+
 const mongoose = require('mongoose');
 
 const cartItemSchema = new mongoose.Schema({

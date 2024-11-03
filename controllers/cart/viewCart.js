@@ -9,7 +9,7 @@ const calculateCartTotals = require('./calculateCartTotals');
 
 async function viewCart(req, res) {
     try {
-        const userId = req.user.userId;
+        const userId = req.user._id;
         const cart = await Cart.findOne({ userId }).populate('items.productId', 'productCode productName barcode');
 
         if (!cart) {

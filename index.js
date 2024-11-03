@@ -1,34 +1,37 @@
+/**
+ * index.js
+ * Uygulamanın ana dosyasıdır. MongoDB bağlantısını sağlar ve rotaları tanımlar.
+ * Sunucuyu başlatır ve belirlenen port üzerinden çalıştırır.
+ */
+
 const express = require('express');
 const { connectMongoDB } = require('./db/dbConnection');
 
-// Rotaları içe aktar
 const productRoutes = require('./routes/products');
 const customerRoutes = require('./routes/customers');
 const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
-const cartRoutes = require('./routes/carts'); // Yeni eklenen rota
+const cartRoutes = require('./routes/carts');
+const orderRoutes = require('./routes/orders');
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 
-// MongoDB'ye bağlan
 connectMongoDB();
 
-// Rota tanımlamaları
 app.use('/api/products', productRoutes);
 app.use('/api/customers', customerRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
-app.use('/api/carts', cartRoutes); // Yeni eklenen rota
+app.use('/api/carts', cartRoutes);
+app.use('/api/orders', orderRoutes);
 
-// Test endpoint'i
 app.get('/test', (req, res) => {
     res.send('Sunucu çalışıyor!');
 });
 
-// Sunucuyu başlat
 app.listen(port, () => {
     console.log(`Sunucu ${port} portunda çalışıyor...`);
 });

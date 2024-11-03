@@ -10,7 +10,7 @@ const calculateCartTotals = require('./calculateCartTotals');
 async function applyDiscountToItem(req, res) {
     try {
         const { productId, discount } = req.body;
-        const userId = req.user.userId;
+        const userId = req.user._id;
 
         const cart = await Cart.findOne({ userId });
         if (!cart) {

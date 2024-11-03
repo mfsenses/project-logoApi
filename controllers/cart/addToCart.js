@@ -11,7 +11,7 @@ const calculateCartTotals = require('./calculateCartTotals');
 async function addToCart(req, res) {
     try {
         const { productId, quantity, discount } = req.body;
-        const userId = req.user.userId;
+        const userId = req.user._id; // Doğru kullanıcı ID'sini al
 
         const product = await Product.findById(productId);
         if (!product) {
@@ -41,7 +41,7 @@ async function addToCart(req, res) {
         await cart.save();
         res.status(200).json(cart);
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ error: `Sepete ekleme sırasında bir hata oluştu: ${err.message}` });
     }
 }
 

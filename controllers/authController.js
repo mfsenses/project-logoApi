@@ -23,7 +23,7 @@ async function login(req, res) {
         const token = jwt.sign(
             { userId: user._id, role: user.role },
             'secretkey', // Bu anahtar projeye özeldir, çevre değişkeni olarak ayarlanabilir
-            { expiresIn: '1h' }
+            { expiresIn: '10m' }
         );
 
         res.status(200).json({ message: 'Giriş başarılı', token });
