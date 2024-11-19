@@ -1,8 +1,8 @@
-// Products koleksiyonunu temsil eden Mongoose modeli
+// Temp koleksiyonunu temsil eden Mongoose modeli
 const mongoose = require('mongoose');
 
-// Aktif ürünlerin veritabanı şeması
-const productSchema = new mongoose.Schema({
+// Temp ürünlerin veritabanı şeması
+const tempProductSchema = new mongoose.Schema({
     productId: Number,
     productCode: String,
     productName: String,
@@ -24,6 +24,6 @@ const productSchema = new mongoose.Schema({
     eBusinessAccessible: Boolean,
     eStoreAccessible: Boolean,
     posAccessible: Boolean,
-}, { collection: 'products' });
+}, { collection: 'tempproducts' });
 
-module.exports = mongoose.model('Product', productSchema); // Modeli dışa aktar
+module.exports = mongoose.model('TempProduct', tempProductSchema); // Modeli dışa aktar

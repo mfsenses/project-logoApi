@@ -2,7 +2,6 @@ const Product = require('../models/productModel');
 const { connectSQL } = require('../db/dbConnection');
 const sql = require('mssql');
 
-
 // Ürün arama fonksiyonu
 async function urunArama(searchTerm) {
     try {
@@ -19,9 +18,6 @@ async function urunArama(searchTerm) {
         throw new Error('MongoDB hatası: ' + err);
     }
 }
-
-
-
 
 // Ürünleri MongoDB'ye senkronize etme
 async function syncProductsToMongoDB() {
@@ -56,7 +52,5 @@ async function syncProductsToMongoDB() {
         console.error('Veritabanı hatası:', err);
     }
 }
-
-
 
 module.exports = { urunArama, syncProductsToMongoDB };
